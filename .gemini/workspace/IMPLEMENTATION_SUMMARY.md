@@ -1,17 +1,14 @@
-# Implementation Summary - Documentation & README
+# Implementation Summary - Update Recreation Guide
 
-Created project documentation to provide clear instructions on how to use and configure the FastAPI In-Memory Rate Limiter.
+## Files Modified
+- `README.md`: Updated the "Recreation Guide" section with more detailed, step-by-step instructions.
 
-## Files Created/Modified
-- `README.md`: Created the main project documentation with features, installation, usage examples, and configuration details.
+## Description of Changes
+- Replaced the previous summary list in the "Recreation Guide" section with five detailed steps.
+- Included specific terminal commands (e.g., `mkdir -p ...`) and detailed descriptions for setting up workspace, agents, skills, and orchestration rules.
+- Maintained the markdown structure and professional tone of the document.
+- Updated the header from `## Recreation Guide` to `### Recreation Guide: Setting Up Your Own Orchestrator` as requested, though it functions as a sub-section of the previous main section.
 
-## Brief Description of Changes
-- Added a comprehensive `README.md` file in the root directory.
-- Included a high-level overview of the sliding window algorithm and background cleanup features.
-- Provided code snippets for FastAPI integration and custom configuration.
-- Listed the project structure for easier navigation.
-
-## Technical Debt Introduced or Addressed
-- **Addressed**: Lack of documentation for the project. Users now have a clear guide on how to implement the rate limiter.
-- **Addressed**: Improved discoverability of the configuration options (`requests_limit` and `window_seconds`).
-- **Debt**: The documentation mentions copying files manually for installation. Packaging the project as a pip-installable library would be a better long-term solution.
+## Technical Debt
+- No technical debt introduced.
+- Improved documentation clarity and usability for new users.
