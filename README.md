@@ -41,23 +41,16 @@ gemini --agent task-understanding-agent "context..."
 
 ## Log & Trace Sections
 
-### Log: Task Understanding
-[Insert Screenshot of Agent Log Here]
+### Log:
 
-### Log: Strategy (Task Approach)
-[Insert Screenshot of Agent Log Here]
+<img width="1758" height="1188" alt="Image 10-05-26 at 6 44 PM" src="https://github.com/user-attachments/assets/4e697b10-bd43-42f5-bc54-949ddaadc713" />
+ere]
 
-### Log: Implementation
-[Insert Screenshot of Agent Log Here]
+<img width="1686" height="1188" alt="Image 10-05-26 at 6 52 PM (1)" src="https://github.com/user-attachments/assets/075788c4-5599-46e7-b7f4-19f787b4a19d" />
 
-### Log: Verification
-[Insert Screenshot of Agent Log Here]
+### Log: Push
+<img width="1558" height="156" alt="Image 10-05-26 at 7 46 PM" src="https://github.com/user-attachments/assets/583a978d-e199-40ac-854e-9a66d0751687" />
 
-### Log: Final Review
-[Insert Screenshot of Agent Log Here]
-
-### Log: GitHub Push
-[Insert Screenshot of Agent Log Here]
 
 ## The "Live" Example
 The repository contains a FastAPI Rate Limiter implementation which was developed and verified using this automated pipeline. This serves as a real-world example of the system's capability to handle complex tasks.
