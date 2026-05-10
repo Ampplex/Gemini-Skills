@@ -46,7 +46,7 @@ gemini --agent task-understanding-agent "context..."
 <img width="1758" height="1188" alt="Image 10-05-26 at 6 44 PM" src="https://github.com/user-attachments/assets/4e697b10-bd43-42f5-bc54-949ddaadc713" />
 
 
-<img width="1686" height="1188" alt="Image 10-05-26 at 6 52 PM (1)" src="https://github.com/user-attachments/assets/075788c4-5599-46e7-b7f4-19f787b4a19d" />
+<img width="1686" height="785" alt="Image 10-05-26 at 6 52 PM (1)" src="https://github.com/user-attachments/assets/cd04212a-9290-4711-8b1a-e24c19be897a" />
 
 ### Log: Push
 <img width="1558" height="156" alt="Image 10-05-26 at 7 46 PM" src="https://github.com/user-attachments/assets/583a978d-e199-40ac-854e-9a66d0751687" />
