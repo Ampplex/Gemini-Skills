@@ -62,10 +62,22 @@ gemini --agent task-understanding-agent "context..."
 ## The "Live" Example
 The repository contains a FastAPI Rate Limiter implementation which was developed and verified using this automated pipeline. This serves as a real-world example of the system's capability to handle complex tasks.
 
-## Recreation Guide
-To set up your own Master Agent orchestrator:
-1.  **Clone the Repository**: `git clone <repo-url>`
-2.  **Configure Agents**: Define your specialists in `.gemini/agents/`.
-3.  **Define Skills**: Add domain-specific knowledge in `.gemini/skills/`.
-4.  **Set Up the Orchestrator**: Customize `GEMINI.md` to define your desired SDLC pipeline.
-5.  **Run**: Use the Gemini CLI to start your automated development tasks.
+### Recreation Guide: Setting Up Your Own Orchestrator
+
+**Step 1: Initialize the Workspace**
+Run the following command in your terminal to set up the necessary directory structure for the pipeline:
+```bash
+mkdir -p .gemini/workspace .gemini/agents .gemini/skills
+```
+
+**Step 2: Define the Subagents**
+Drop your agent definition files into the `.gemini/agents/` directory. Subagents are defined as Markdown files that specify their persona, tools, and responsibilities.
+
+**Step 3: Create or Install the Skills**
+Drop your skill directories into the `.gemini/skills/` folder. A skill is simply a directory containing a `SKILL.md` file along with any optional bundled assets. If you do not want to scaffold the files manually, you can ask the built-in `skill-creator` to handle the directory structure and boilerplate for you.
+
+**Step 4: Set the Master Orchestration Rules**
+Add your Master Agent orchestration rules to the `GEMINI.md` file in the root of your project. Because this file is loaded on every request, it is the exact right place for pipeline governance and routing instructions.
+
+**Step 5: Run the Pipeline**
+Start an interactive session by running the `gemini` command. Give it your initial task, and the pipeline will run. Each agent reads from and writes to `.gemini/workspace/`, creating a fully inspectable audit trail as the pipeline executes.
