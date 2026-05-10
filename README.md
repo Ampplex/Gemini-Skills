@@ -1,68 +1,71 @@
-# FastAPI In-Memory Rate Limiter
+# Gemini Skills: Automated Development Orchestration
 
-A pure Python, in-memory rate limiting dependency for FastAPI applications.
+## Introduction
+This repository demonstrates how to use Gemini CLI skills to automate a complete software development lifecycle (SDLC) using a "Master Agent" pattern. It showcases a system where a central orchestrator manages specialized agents to handle different phases of development, from requirements gathering to deployment.
 
-## Features
-- **Sliding window algorithm** for precise rate limiting.
-- **Zero external dependencies** (No Redis or external DBs required).
-- **Automatic background memory cleanup** to prevent memory leaks by pruning expired data.
-- **FastAPI dependency injection support** for easy integration.
-- **Returns 429 Too Many Requests** status code when limits are exceeded.
+## The Pipeline
+The project follows a structured 6-stage pipeline:
+1.  **Task Understanding**: Analyzes the request and generates `TASK_REQUIREMENTS.md`.
+2.  **Strategy**: Develops an implementation plan in `TASK_APPROACH.md`.
+3.  **Implementation**: Executes the code changes and documents them in `IMPLEMENTATION_SUMMARY.md`.
+4.  **Verification**: Runs tests and checks to ensure quality, producing `VERIFICATION_REPORT.md`.
+5.  **Final Review**: A human-in-the-loop or high-level agent review producing `FINAL_REVIEW.md`.
+6.  **GitHub Push**: Automates the final commit and push to the repository, documented in `PUSH_SUMMARY.md`.
 
-## Requirements
-- FastAPI
-- Uvicorn
+## How it Works (Gemini Skills)
 
-## Installation
-Currently, this is a local module. You can copy the `src/rate_limiter` and `src/core` directories into your project.
+### .gemini/agents
+These are the specialist agents, each defined with specific roles and responsibilities. They are invoked by the Master Agent to perform discrete tasks within the pipeline.
+- **task-understanding-agent**: Focuses on clarity and scope.
+- **task-approach-agent**: Architectures the solution.
+- **write-code-agent**: Handles the actual coding.
+- **verify-agent**: Ensures correctness and standards.
+- **final-review-agent**: Provides the final quality gate.
+- **push-to-github-agent**: Manages the release.
 
+### .gemini/skills
+Domain knowledge and specific capabilities are encapsulated as skills. For example, `coding-standards` defines the style and quality rules that the agents must follow.
+
+### GEMINI.md
+This is the master "instruction manual" for the orchestrator. It defines the pipeline flow, the hard gates between stages, and how agents should interact with the shared state in `.gemini/workspace/`.
+
+## Commands Used (The Playbook)
+To trigger the automated workflow, the user typically initiates a request through the Gemini CLI:
 ```bash
-pip install fastapi uvicorn
+gemini "Implement a new feature or fix a bug..."
+```
+The Master Agent then interprets `GEMINI.md` and begins invoking the sub-agents internally using commands like:
+```bash
+gemini --agent task-understanding-agent "context..."
 ```
 
-## Usage Example
+## Log & Trace Sections
 
-### 1. Integration in FastAPI
-Import the `limiter` instance and use it as a dependency. You should also start the background cleanup task during the application startup.
+### Log: Task Understanding
+[Insert Screenshot of Agent Log Here]
 
-```python
-from fastapi import FastAPI, Depends
-from src.rate_limiter.limiter import limiter
+### Log: Strategy (Task Approach)
+[Insert Screenshot of Agent Log Here]
 
-app = FastAPI()
+### Log: Implementation
+[Insert Screenshot of Agent Log Here]
 
-@app.on_event("startup")
-async def startup():
-    # Start the cleanup background task to prune memory
-    limiter.start_cleanup()
+### Log: Verification
+[Insert Screenshot of Agent Log Here]
 
-@app.on_event("shutdown")
-async def shutdown():
-    # Stop the cleanup background task
-    limiter.stop_cleanup()
+### Log: Final Review
+[Insert Screenshot of Agent Log Here]
 
-@app.get("/", dependencies=[Depends(limiter)])
-async def root():
-    return {"message": "Hello World"}
-```
+### Log: GitHub Push
+[Insert Screenshot of Agent Log Here]
 
-### 2. Custom Configuration
-You can customize the rate limit and window size when initializing the `RateLimiter`:
+## The "Live" Example
+The repository contains a FastAPI Rate Limiter implementation which was developed and verified using this automated pipeline. This serves as a real-world example of the system's capability to handle complex tasks.
 
-```python
-from src.rate_limiter.limiter import RateLimiter
-
-# 50 requests per 30 seconds
-custom_limiter = RateLimiter(requests_limit=50, window_seconds=30)
-```
-
-## Configuration
-The `RateLimiter` class accepts the following parameters:
-- `requests_limit`: Maximum number of requests allowed within the window (default: `100`).
-- `window_seconds`: The duration of the sliding window in seconds (default: `60`).
-
-## Project Structure
-- `src/rate_limiter/limiter.py`: Core logic for the sliding window and cleanup task.
-- `src/core/errors.py`: Custom HTTP 429 exception.
-- `src/main.py`: Example FastAPI application demonstrating usage.
-- `tests/test_rate_limiter.py`: Unit tests for the rate limiter.
+## Recreation Guide
+To set up your own Master Agent orchestrator:
+1.  **Clone the Repository**: `git clone <repo-url>`
+2.  **Configure Agents**: Define your specialists in `.gemini/agents/`.
+3.  **Define Skills**: Add domain-specific knowledge in `.gemini/skills/`.
+4.  **Set Up the Orchestrator**: Customize `GEMINI.md` to define your desired SDLC pipeline.
+5.  **Run**: Use the Gemini CLI to start your automated development tasks.
