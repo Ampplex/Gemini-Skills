@@ -1,7 +1,7 @@
 # Gemini Skills: Automated Development Orchestration
 
 ## Introduction
-This repository demonstrates how to use Gemini CLI skills to automate a complete software development lifecycle (SDLC) using a "Master Agent" pattern. It showcases a system where a central orchestrator manages specialized agents to handle different phases of development, from requirements gathering to deployment.
+This repository demonstrates how to use Gemini CLI skills to automate a complete software development lifecycle (SDLC) using a "Master Agent" pattern. It showcases a system where a central orchestrator manages specialized agents to handle different phases of development, from requirements gathering to deployment. We made a FastAPI Rate Limiter implementation which was developed and verified using this automated pipeline. This serves as a real-world example of the system's capability to handle complex tasks.
 
 ## The Pipeline
 The project follows a structured 6-stage pipeline:
